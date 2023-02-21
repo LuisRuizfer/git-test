@@ -1,0 +1,94 @@
+//Modal Button
+.modalButton {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(216, 216, 216, 0.473);
+    border-radius: .3rem;
+    border: 1px solid transparent;
+
+    padding: 0.2rem 0.5rem;
+
+    &:hover {
+        color: black;
+        border-color: rgba(145, 145, 145, 0.486);
+    }
+}
+
+//Modal Container
+.modal-container {
+    .modal-content {
+        .modal-header {
+            h2 {
+
+                span {}
+            }
+
+            svg {
+                &:hover {}
+            }
+        }
+
+        .modal-body {
+
+
+            p {
+                font-size: 1.1rem;
+                max-width: 30rem;
+            }
+
+            img {
+                max-width: 30rem;
+            }
+
+            .contentProgram {
+                p {
+                    text-align: center;
+                    font-size: 1.4rem;
+
+                    span {
+                        font-weight: 500;
+                    }
+                }
+
+                div {
+                    margin-top: 2.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    button {
+                        cursor: pointer;
+                        margin: 0 1rem;
+                        padding: .4rem 1rem;
+                        font-weight: 500;
+                        font-size: 1.3rem;
+                        color: rgb(99, 99, 99);
+                        background: none;
+                        border-radius: .3rem;
+                        border: 2px solid rgb(211, 211, 211);
+                        transition: all .3s ease-in-out;
+
+                        &:last-child {
+                            color: white;
+                            background-color: rgb(172, 0, 0);
+                            border-color: rgb(172, 0, 0);
+
+                            &:hover {
+                                color: rgb(172, 0, 0);
+                                background-color: white;
+                                border-color: rgb(172, 0, 0);
+                            }
+                        }
+
+                        &:hover {
+                            color: rgb(56, 56, 56);
+                            border-color: rgb(102, 101, 101);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

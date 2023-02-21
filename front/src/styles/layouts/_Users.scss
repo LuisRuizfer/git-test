@@ -1,0 +1,268 @@
+.wrapper-assignment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        width: 90%;
+        margin: 3rem;
+        padding: 2rem;
+        border-radius: .4rem;
+        box-shadow: 0px 0px 13px 4px rgba(185, 185, 185, 0.274);
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-auto-flow: column;
+
+            div {
+                width: fit-content;
+                text-align: start;
+            }
+        }
+
+        .body {
+
+            .worker {
+                cursor: pointer;
+                margin: .8rem 0;
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                grid-auto-flow: column;
+                align-items: center;
+                padding: 1rem 0;
+                border: 2px solid transparent;
+                transition: all .3s linear;
+                font-size: 1.6vh;
+                box-shadow: 2px 2px 8px 8px rgba(211, 211, 211, 0.342);
+                text-align: center;
+
+                &-title {
+                    margin: .8rem 0;
+                    display: grid;
+                    padding: 1rem 0;
+                    text-align: center;
+                    grid-template-columns: repeat(7, 1fr);
+                    font-size: 1.8vh;
+                    font-weight: bold;
+                    text-decoration: underline #e0be2c;
+                    text-decoration-thickness: 3px;
+                }
+
+                p {
+                    color: black;
+                }
+
+                &-textLarge {
+                    font-size: 1.4vh;
+                }
+
+                &:hover {
+                    border-radius: .4rem;
+                    border-color: rgba(156, 156, 156, 0.322);
+                    box-shadow: 0px 0px 13px 4px rgba(179, 179, 179, 0.281);
+                }
+
+                button {
+                    width: 40%;
+                    margin: 0 auto;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .paginacion {
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            div {
+                margin: 0 .6rem;
+                text-decoration: none;
+                padding: .4rem 1rem;
+                border-radius: .3rem;
+                color: black;
+                border: 2px solid transparent;
+                box-shadow: 0px 0px 13px 4px rgba(185, 185, 185, 0.274);
+                transition: all .3s linear;
+
+                &:hover {
+                    border-color: rgba(121, 121, 121, 0.664);
+                }
+            }
+
+            .active {
+                font-weight: 700;
+                border-color: rgba(121, 121, 121, 0.664);
+                background-color: rgba(207, 207, 207, 0.308);
+
+            }
+        }
+
+
+    }
+}
+
+.searcher {
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 2rem;
+    padding: 1vh;
+    grid-template-columns: repeat(6, 1fr);
+    display: grid;
+    box-shadow: 2px 2px 8px 8px rgba(211, 211, 211, 0.342);
+    margin-bottom: 3rem;
+    text-align: center;
+
+    p {
+        text-decoration: underline #e0be2c;
+        text-decoration-thickness: 3px;
+    }
+
+    select {
+        font-size: 8px;
+        height: auto;
+        font-weight: bold;
+        letter-spacing: 2px;
+        border: 2px solid black;
+        margin-left: 5vh;
+    }
+
+    option {
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    input {
+        margin-top: 2vh;
+        margin-left: 2vh;
+        font-size: 12px;
+    }
+
+    //? Styles EditMaterial.
+    &-edit {
+        @extend .searcher;
+        grid-template-columns: repeat(3, 1fr);
+
+        select {
+            margin-left: 6vh;
+        }
+    }
+
+    //? Styles EditUser.
+    &-editUser {
+        @extend .searcher;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 1vh;
+        padding: 2vh;
+        width: 99%;
+
+        div {
+            margin-top: 1vh;
+        }
+
+        input {
+            margin-left: 5vh;
+            height: 5vh;
+            width: 30vh;
+        }
+
+        &-input {
+            margin-left: -1vh;
+            margin-right: -1vh;
+            height: 4vh;
+            font-size: 1.6vh;
+        }
+    }
+
+}
+
+.editUser {
+    &-show {
+        @extend .materialsList__material-edit;
+        grid-template-columns: repeat(10, 1fr) !important;
+        font-size: 2.2vh;
+    }
+
+    &-toEdit {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        box-shadow: 2px 2px 8px 8px rgba(211, 211, 211, 0.342);
+        margin: 1vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        width: 99%;
+
+        p {
+            font-size: 1.4vh;
+        }
+    }
+}
+
+.selectToUserEdit {
+    margin-left: -1vh;
+    margin-right: -1vh;
+    height: 3.8vh;
+    font-size: 1.4vh;
+}
+
+.header-editUser {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    font-size: 1.8vh;
+    font-weight: bold;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+}
+
+.ToEdit-short {
+    margin-left: -1vh;
+    margin-right: -1vh;
+    height: 3.8vh;
+    font-size: 1.4vh;
+}
+
+// Hi-res desktops - big window. 
+@media (min-width: 1581px) {
+    .searcher-editUser input {
+        height: 4vh;
+    }
+    .searcher select { font-size: 12px; }
+
+    .searcher-editUser-input {
+        margin-left: 1vh;
+        margin-right: 1vh;
+        height: 3vh;
+        font-size: 1.2vh;
+        width: 18vh;
+    }
+
+    .selectToUserEdit {
+        height: 2.8vh;
+        font-size: 1.2vh;
+    }
+
+    .ToEdit-short {
+        width: 6vh !important;
+        height: 2.8vh;
+        font-size: 1.2vh;
+    }
+
+    .editUser-show {
+        font-size: 1.6vh;
+    }
+}

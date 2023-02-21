@@ -1,0 +1,22 @@
+const createTransport = require('../../config/nodemailer')
+
+module.exports = async function sendWorkerLog(nombre, apellidos, email, path, fileName) {
+    const today = new Date();
+    const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    const htmlTemplate = `<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>${nombre}${apellidos}- Materiales</title> <style>body{background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%}table{border-collapse: separate; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%}table td{font-family: sans-serif; font-size: 14px; vertical-align: top}.body{background-color: #f6f6f6; width: 100%}.container{display: block; margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px}.content{box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px}.main{background: #fff; border-radius: 3px; width: 100%}.wrapper{box-sizing: border-box; padding: 20px}.content-block{padding-bottom: 10px; padding-top: 10px}.footer{clear: both; margin-top: 10px; text-align: center; width: 100%}.footer a, .footer p, .footer span, .footer td{color: #999; font-size: 12px; text-align: center}h1, h2, h3, h4{color: #000; font-family: sans-serif; font-weight: 400; line-height: 1.4; margin: 0; margin-bottom: 30px}h1{font-size: 35px; font-weight: 300; text-align: center; text-transform: capitalize}ol, p, ul{font-family: sans-serif; font-size: 14px; font-weight: 400; margin: 0; margin-bottom: 15px}ol li, p li, ul li{list-style-position: inside; margin-left: 5px}a{color: #3498db; text-decoration: underline}.orion-email{text-align: center;}@media only screen and (max-width:620px){table.body h1{font-size: 28px !important; margin-bottom: 10px !important}table.body a, table.body ol, table.body p, table.body span, table.body td, table.body ul{font-size: 16px !important}table.body .article, table.body .wrapper{padding: 10px !important}table.body .content{padding: 0 !important}table.body .container{padding: 0 !important; width: 100% !important}table.body .main{border-left-width: 0 !important; border-radius: 0 !important; border-right-width: 0 !important}table.body .btn table{width: 100% !important}table.body .btn a{width: 100% !important}table.body .img-responsive{height: auto !important; max-width: 100% !important; width: auto !important}}</style></head><body> <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body"> <tr> <td>&nbsp;</td><td class="container"> <div class="content"> <table role="presentation" class="main"> <tr> <td class="wrapper"> <table role="presentation" border="0" cellpadding="0" cellspacing="0"> <tr> <td><img src="https://professionalprogramsmit.com/gateway/api/215-998/globalimagelogo.png" alt="Logo-Global-Alumni" width="100%"></td></tr><tr> <td> <p>Hola,</p><p>Adjunto a este correo encontrarás un documento con el listado de todas las asignaciones de materiales que se le han realizado al trabajador ${nombre} ${apellidos} a día de hoy, ${dayNames[today.getDay()]} ${today.getDate()} de ${monthNames[today.getMonth()]} de ${today.getFullYear()}.</p><p>Por favor, envía este documento a RRHH para su evaluación.</p></td></tr></table> </td></tr></table> <div class="footer"> <table role="presentation" border="0" cellpadding="0" cellspacing="0"> <tr> <td class="content-block"><span>IT Department - Global Alumni</span></td></tr></table> </div></div></td><td>&nbsp;</td></tr></table></body></html>`;
+    const transporter = createTransport();
+    const info = await transporter.sendMail({
+        from: process.env.NODEMAILER_EMAIL,
+        to: email,
+        subject: `Historial asignaciones - ${nombre} ${apellidos}`,
+        html: htmlTemplate,
+        attachments: [{
+            filename: fileName,
+            path: path,
+            contentType: 'application/pdf'
+        }]
+    });
+    console.log("Mail del Código de Login Enviado: " + info.messageId);
+    return
+};

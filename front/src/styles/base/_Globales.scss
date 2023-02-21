@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.rightButton {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  margin: 2rem;
+  border-radius: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.315);
+  color: rgba(0, 0, 0, 0.562);
+  transition: all 0.3s linear;
+  &:hover {
+    color: black;
+    transform: scale(1.5);
+  }
+}
+.rightButton.left {
+  margin-right: 5rem;
+}
+body {
+  background-image: url('../../assets/FONDO-ATLAS.png');
+  font-family: 'Noto Serif', serif;
+}
+
+.create-brand {
+  width: 30vh;
+}
+
+video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.loginAzure {
+  position: absolute;
+  margin-left: 98vh;
+  margin-top: 81vh;
+  height: 8.6vh;
+  width: 8.6vh;
+  border-radius: 50%;
+  font-weight: bold;
+  background-color: #e0be2c;
+  cursor: pointer;
+}
+
+// Hi-res desktops - big window. 
+@media (min-width: 1581px) {}
+
+/* tablet, landscape iPad, laptops HORIZONTAL */
+@media screen and
+(min-width:990px) and (max-width: 1200px) {}
+
+/* tablet, landscape iPad, laptops VERTICAL */
+@media screen and
+(min-width:800px) and (max-width: 840px) and (min-height:990px) and
+(max-height: 1200px) {}
+
+// Movil versión HORIZONTAL.
+@media screen and (min-width:601px) and
+(max-width: 890px) and (min-height:320px) and (max-height: 440px){}
+
+// Movil versión VERTICAL.
+@media screen and (max-width: 600px) {}

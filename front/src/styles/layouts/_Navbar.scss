@@ -1,0 +1,97 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+
+    &__navigate {
+        cursor: pointer;
+        width: 19vh;
+        height: 10vh;
+
+        &:hover{
+            box-shadow: 4px 4px 13px 4px #e0be2c ;
+            border-color: #e0be2c;   
+        }
+
+        &-movement {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &-back {
+            cursor: pointer;
+            display: flex;
+            width: 14vh;
+            height: 4.4vh;
+            margin: 0.4vh;
+            border: #e0be2c 2px solid;
+            border-radius: 10px;
+
+            p { 
+                font-size: 2.2vh;
+                color: #e0be2c;
+            }
+            &-img { height: 3vh; }
+        }
+    }
+
+    &__logo { height: 10vh; }
+    
+    &__logger { float: right; }
+
+    &__logger-on {
+        background-color: #fff;
+        background-image: url('../../assets/FONDO-ATLAS.png');
+        background-repeat: no-repeat;
+        background-size: 62%;
+        background-position-x: center;
+        cursor: pointer;
+        width: 36vh;
+        margin-right: 4vh;
+        padding: 2vh;
+        box-shadow: 2px 2px 8px 8px rgba(145, 145, 145, 0.486);
+        font-size: 1.6vh;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 3vh;
+        position: relative;
+        
+        p {
+            margin: 2vh;
+            width: 100%;
+            padding-right: 4vh;
+        }
+    }
+
+    &__logger-off { margin: 3vh; }
+    
+    &__gear {
+        cursor: pointer;
+        height: 5vh;
+        border-radius: 50%;
+    }
+    &__closed {
+        height: 3vh;
+        float: right;
+        margin-top: -2vh;
+        margin-right: -2vh;
+    }
+}
+
+.logoutButton {
+    @extend .normalButton;
+    height: 3vh;
+    font-size: 1vh;
+}
+
+// Hi-res desktops - big window. 
+@media (min-width: 1581px) {
+    .navbar__navigate-back {
+        width: 9vh;
+        height: 3.3vh;
+
+        p { font-size: 1.5vh; }
+    }
+}
